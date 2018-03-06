@@ -18,14 +18,12 @@ elapsedTime = 3.5;
 Ts = elapsedTime/M;
 t = 0:Ts:Ts*(M-1);
 
-gyroRoll(1,:) = roll(1);
-gyroPitch(1,:) = pitch(1);
-gyroYaw(1,:) = yaw(1);
+gyroRoll(1,:) = 0;
+gyroPitch(1,:) = 0;
+gyroYaw(1,:) = 0;
 %Calculate angles from gyroscope measurements:
 for k = 2:M
     gyroRoll(k,:) = gyroRoll(k-1,:) + Ts*gyroR(k);
-    gyroPitch(k,:) = gyroPitch(k-1,:) + Ts*gyroP(k);
-    gyroYaw(k,:) = gyroYaw(k-1,:) + Ts*gyroY(k);
 end
 
 %Plot results:
